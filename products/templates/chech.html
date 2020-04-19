@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="row">
+    {% for product in products %}
+     <div class="col">
+         {% if inp1 in product.location  %}
+         {% if inp in product.cuisines %}
+        <div class="card" style="width: 19rem;">
+            <img src="{{ product.image_url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">Rs.{{ product.price }}</p>
+                <p class="card-text">In-{{ product.location }}</p>
+                <p class="card-text">Rating-{{ product.rating }}</p>
+                <a href={{ product.res_url }} class="btn btn-primary">Order</a>
+            </div>
+        </div>
+        <br>
+         {% else %}
+         {% endif %}
+         {% else %}
+         {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
